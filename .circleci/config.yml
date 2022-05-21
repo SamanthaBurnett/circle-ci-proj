@@ -32,8 +32,9 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run:
-          command: "echo $PROJ_OWNER"
+      - run: 
+          command: |
+            echo $PROJ_OWNER
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
