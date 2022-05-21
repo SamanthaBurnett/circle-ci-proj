@@ -33,8 +33,7 @@ jobs:
     steps:
       - checkout
       - run: 
-          command: |
-            echo hey $PROJ_OWNER
+          command: "echo hey $PROJ_OWNER"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
