@@ -38,6 +38,17 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
+  test_on_fail:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run:
+          commmand: echo $NON_EXISTENT_ENV_VAR
+      - run:
+          name: Upload Failed Tests
+          command: echo "that variable does not exist"
+          when: on_fail
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -51,3 +62,6 @@ workflows:
   print-id-workflow:
     jobs:
       - print_id
+  test_on_fail_workflow:
+    jobs:
+      test_on_fail
