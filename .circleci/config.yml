@@ -42,10 +42,10 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: return 1
+      - run: exit 1
       - run:
           name: Previous step failed
-          command: echo "that variable does not exist"
+          command: echo "previous step failed"
           when: on_fail
 
 # Invoke jobs via workflows
