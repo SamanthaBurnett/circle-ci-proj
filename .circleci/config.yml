@@ -7,6 +7,7 @@ commands:
     description: "Prints circle ci workflow id"
     parameters:
       to:
+        type: string
         default: $CIRCLE_WORKFLOW_ID
     steps:
       - run: echo << parameters.to >>
