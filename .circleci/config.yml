@@ -42,10 +42,11 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: exit 1
       - run:
-          name: on error
-          command: echo "Hello Error!"
+          commmand: echo $NON_EXISTENT_VARIABLE
+      - run:
+          name: Previous step failed
+          command: echo "that variable does not exist"
           when: on_fail
 
 # Invoke jobs via workflows
@@ -62,4 +63,4 @@ workflows:
       - print_id
   test_on_fail_workflow:
     jobs:
-      test_on_fail
+      - test_on_fail
