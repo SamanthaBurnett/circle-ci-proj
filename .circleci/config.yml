@@ -44,9 +44,9 @@ jobs:
     steps:
       - checkout
       - run:
-          commmand: echo $NON_EXISTENT_ENV_VAR
+          commmand: return 1
       - run:
-          name: Upload Failed Tests
+          name: Previous step failed
           command: echo "that variable does not exist"
           when: on_fail
 
