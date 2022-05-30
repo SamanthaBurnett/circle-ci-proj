@@ -42,7 +42,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo $NON_EXISTENT_VARIABLE
+      - run: return 1
       - run:
           name: Previous step failed
           command: echo "that variable does not exist"
